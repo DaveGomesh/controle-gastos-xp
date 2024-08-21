@@ -1,5 +1,7 @@
 package xp.controleGastos.service;
 
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -18,5 +20,21 @@ public class DespesaService {
     public Despesa cadastrar(CadastrarDespesaDto dto) {
         var despesa = despesaMapper.toModel(dto);
         return despesaRepository.save(despesa);
+    }
+
+    public void aprovar(UUID idDespesa) {
+        despesaRepository.save(despesaRepository
+            .findById(idDespesa)
+            .orElseThrow()
+            .aprovar()
+        );
+    }
+
+    public void reprovar(UUID idDespesa) {
+        despesaRepository.save(despesaRepository
+            .findById(idDespesa)
+            .orElseThrow()
+            .reprovar()
+        );
     }
 }

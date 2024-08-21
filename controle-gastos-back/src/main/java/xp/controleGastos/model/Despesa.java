@@ -1,5 +1,9 @@
 package xp.controleGastos.model;
 
+import static xp.controleGastos.model.StatusDespesa.APROVADA;
+import static xp.controleGastos.model.StatusDespesa.PENDENTE;
+import static xp.controleGastos.model.StatusDespesa.REPROVADA;
+
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -44,9 +48,23 @@ public class Despesa {
     @Past
     private LocalDate data;
 
+    @NotNull
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    private StatusDespesa statusDespesa = PENDENTE;
+
     @ManyToOne
     @JoinColumn(name = "fk_funcionario")
     private Funcionario funcionario;
 
+    public Despesa aprovar() {
+        statusDespesa = APROVADA;
+        return this;
+    }
+
+    public Despesa reprovar() {
+        statusDespesa = REPROVADA;
+        return this;
+    }
 }
 
