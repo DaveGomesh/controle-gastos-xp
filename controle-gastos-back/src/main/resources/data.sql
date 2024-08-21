@@ -1,0 +1,1 @@
+INSERT INTO funcionario (id_Funcionario, nome) values ('0fc0366c-a490-44b0-8854-1390c235d8da', 'Valter');
