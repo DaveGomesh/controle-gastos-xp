@@ -1,0 +1,74 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F4F4F4;
+  padding: 2rem;
+  color: #333;
+}
+
+.App{
+  max-width: 50rem;
+  margin: 0 auto 20rem;
+  background-color: #f3ce96;
+  padding: 2rem 3rem; 
+  border-radius: .5rem;
+}
+
+.FormularioDespesa{
+  padding-bottom: 1.5rem;
+  margin-top: .3rem;
+  padding-top:.3rem;
+  border-bottom: .1rem solid #555;
+}
+
+.lista-despesas{
+  
+}
+
+.despesa{
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: .3rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+h1{
+  text-align: center;
+}
+
+h2{
+  margin-bottom: 1rem;
+}
+
+p{
+  margin: 1rem 0;
+}
+
+input{
+  box-sizing: border-box;
+  width: 50%;
+  margin-bottom: .4rem;
+  border-radius: .2rem;
+
+}
+
+li{
+  list-style: none;
+}
+
+button{
+  background-color: #333974;
+  color: #ffff;
+  padding: .3rem .5rem;
+  border: none;
+  border-radius: .2rem;
+  cursor: pointer;
+  opacity: .8;
+  transition: 0.3s;
+}
+
+button:hover{
+  opacity: 1;
+}
