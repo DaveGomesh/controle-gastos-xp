@@ -5,6 +5,7 @@ import HistoricoPage from './pages/HistoricoPage';
 import PaginaPrincipal from './pages/PaginaPrincipal';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const root = createRoot(document.getElementById('root'));

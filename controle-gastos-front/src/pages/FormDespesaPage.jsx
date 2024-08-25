@@ -2,8 +2,6 @@ import Swal from 'sweetalert2';
 import FormDespesa from '../components/FormDespesa';
 
 export default function FormDespesaPage() {
-    console.log("FormDespesaPage")
-
     const addDespesas = (descricao, categoria, valor, data) => {
         fetch('http://localhost:8080/api/despesas', {
             method: 'POST',

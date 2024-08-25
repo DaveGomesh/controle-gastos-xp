@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 export default function FormDespesa({ addDespesa }) {
     const [descricao, setDescricao] = useState('')
@@ -21,77 +22,60 @@ export default function FormDespesa({ addDespesa }) {
     FormDespesa.propTypes = {
         addDespesa: PropTypes.func.isRequired,
     };
-    //   return <form>
-    //     <div className='row'>
-    //         <div className='col-6'>
-    //             <div className="mb-3">
-    //                 <label className="form-label" htmlFor='exampleFormControlTextarea1'>Descrição da despesa:</label>
-    //                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    //                 <div id="emailHelp" className="form-text">Descreva o seu gasto</div>
-    //             </div>
-    //         </div>
-    //         <div className='col-3'>
-    //             <div className="mb-3">
-    //                 <label className="form-label" htmlFor='exampleInputEmail1'>Tipo de despesa:</label>
-    //                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    //                 <div id="emailHelp" className="form-text">Descreva o seu gasto</div>
-    //             </div>
-    //         </div>
-    //         <div className='col-3'>
-    //             <div className="mb-3">
-    //                 <label className="form-label" htmlFor='exampleInputEmail1'>Tipo de despesa:</label>
-    //                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    //                 <div id="emailHelp" className="form-text">Descreva o seu gasto</div>
-    //             </div>
-    //         </div>
-    //     </div>
-
-    //   <button type="submit" className="btn btn-primary">Submit</button>
-    // </form>
+    
     return (
         <div className='FormularioDespesa'>
             <h2>Adicionar Despesa</h2>
             <form onSubmit={handleSubmit}>
-                <ul>
-                    <li>
-                        <label htmlFor='descricao'>Descrição da despesa:</label>
-                        <input
-                            id='descricao'
-                            type="text"
-                            placeholder='digite uma breve descrição da despesa'
-                            onChange={(e) => setDescricao(e.target.value)}
-                            value={descricao}
-                        ></input>
-                    </li>
-                    <li >
-                        <label htmlFor='tipodespesa'>Tipo de despesa:</label>
-                        <input id='tipodespesa'
-                            type="text"
-                            placeholder='digite o tipo de despesa'
-                            onChange={(e) => setTipodespesa(e.target.value)}
-                            value={tipodespesa}
-                        ></input>
-                    </li>
-                    <li>
-                        <label htmlFor='valor'>Valor da despesa:</label>
-                        <input id='valor'
-                            type="text"
-                            placeholder='digite o valor da despesa'
-                            onChange={(e) => setValor(e.target.value)}
-                            value={valor}
-                        ></input>
-                    </li>
-                    <li>
-                        <label htmlFor='data'>Data da despesa:</label>
-                        <input id='data'
-                            type="text"
-                            placeholder='digite a data no formato ano-mes-dia'
-                            onChange={(e) => setData(e.target.value)}
-                            value={data}
-                        ></input>
-                    </li>
-                </ul>
-                <button>Adicionar despesa</button>
+                <div className='mb-3'>
+                    <label className='form-label' htmlFor='descricao'>Descrição da despesa:</label>
+                    <textarea
+                        id="descricao"
+                        className="form-control"
+                        onChange={(e) => setDescricao(e.target.value)}
+                        value={descricao}
+                        rows="3"
+                    ></textarea>
+                </div>
+
+                <div className='mb-3'>
+                    <label className='form-label' htmlFor='tipodespesa'>Tipo de despesa:</label>
+                    <select
+                        id='tipodespesa'
+                        className='form-select'
+                        onChange={(e) => setTipodespesa(e.target.value)}
+                        value={tipodespesa}
+                    >
+                        <option value='ALIMENTACAO'>Alimentação</option>
+                        <option value='TRANSPORTE'>Transporte</option>
+                        <option value='HOSPEDAGEM'>Hospedagem</option>
+                    </select>
+                </div>
+
+                <div className='mb-3'>
+                    <label className='form-label' htmlFor='valor'>Valor da despesa:</label>
+                    <input id='valor'
+                        className='form-control'
+                        type="text"
+                        placeholder='digite o valor da despesa'
+                        onChange={(e) => setValor(e.target.value)}
+                        value={valor}
+                    ></input>
+                </div>
+
+                <div className='mb-4'>
+                    <label className='form-label' htmlFor='data'>Data da despesa:</label>
+                    <input id='data'
+                        className='form-control'
+                        type="text"
+                        placeholder='digite a data no formato ano-mes-dia'
+                        onChange={(e) => setData(e.target.value)}
+                        value={data}
+                    ></input>
+                </div>
+
+                <button className='btn btn-primary me-2'>Adicionar despesa</button>
+                <Link to={"/"}><button className='btn btn-secondary'>Voltar</button></Link>
             </form>
         </div>
     )
