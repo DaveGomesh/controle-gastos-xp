@@ -1,51 +1,28 @@
- import { useState } from 'react'
- import './App.css'
- import Despesa from './components/Despesa';
- import FormDespesa from './components/FormDespesa';
-
+import './App.css';
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { FormDespesaPage } from './pages/FormDespesaPage';
+import { HistoricoPage } from './pages/HistoricoPage';
+import { PaginaPrincipal } from './pages/PaginaPrincipal';
 
 
 
 function App() {
-  const [despesas, setDespesas] = useState([])
-
-  const addDespesa = (descricao, categoria, valor, data) => {
-    const novaDespesa = {
-      descricao,
-      categoria,
-      valor,
-      data
-    }
-   /*   setDespesas((prevDespesas) => [...prevDespesas, novaDespesa])
-
-    fetch('https://example.com/api/endpoint', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        key: 'value',
-        anotherKey: 'anotherValue'
-      })
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-      */
- }
-  return <div className='App'>
-    <h1>Controle de Gastos</h1>
-        <div>
-          <FormDespesa addDespesa={addDespesa}/>
-        </div>
-    <div className='lista-despesas'>
-        {despesas.map((despesa) => (
-          <Despesa key={despesa.id} despesa={despesa} />
-        ))}
-    </div>
-  </div>;
+ 
+  return (
+  <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<PaginaPrincipal/>} />
+            <Route path="/form-despesa" element={<FormDespesaPage/>} />
+            <Route path="/historico" element={<HistoricoPage/>} />
+          </Routes>
+  </BrowserRouter>
+  );
 }
-
-//* 
-
 export default App
+
+
+
+ {/* <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      /> */}

@@ -21,6 +21,33 @@ const FormDespesa = ({addDespesa}) => {
     FormDespesa.propTypes = {
         addDespesa: PropTypes.func.isRequired,
       };
+    //   return <form>
+    //     <div className='row'>
+    //         <div className='col-6'>
+    //             <div className="mb-3">
+    //                 <label className="form-label" htmlFor='exampleFormControlTextarea1'>Descrição da despesa:</label>
+    //                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    //                 <div id="emailHelp" className="form-text">Descreva o seu gasto</div>
+    //             </div>
+    //         </div>
+    //         <div className='col-3'>
+    //             <div className="mb-3">
+    //                 <label className="form-label" htmlFor='exampleInputEmail1'>Tipo de despesa:</label>
+    //                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+    //                 <div id="emailHelp" className="form-text">Descreva o seu gasto</div>
+    //             </div>
+    //         </div>
+    //         <div className='col-3'>
+    //             <div className="mb-3">
+    //                 <label className="form-label" htmlFor='exampleInputEmail1'>Tipo de despesa:</label>
+    //                 <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+    //                 <div id="emailHelp" className="form-text">Descreva o seu gasto</div>
+    //             </div>
+    //         </div>
+    //     </div>
+    
+    //   <button type="submit" className="btn btn-primary">Submit</button>
+    // </form>
   return (
     <div className='FormularioDespesa'>
         <h2>Adicionar Despesa</h2>
@@ -58,7 +85,7 @@ const FormDespesa = ({addDespesa}) => {
                     <label htmlFor='data'>Data da despesa:</label>
                     <input id='data' 
                     type="text" 
-                    placeholder='digite a data no formato dia/mes/ano' 
+                    placeholder='digite a data no formato ano-mes-dia' 
                     onChange={(e) => setData(e.target.value)}
                     value={data}
                     ></input>
