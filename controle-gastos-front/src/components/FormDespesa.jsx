@@ -22,7 +22,7 @@ export default function FormDespesa({ addDespesa }) {
     FormDespesa.propTypes = {
         addDespesa: PropTypes.func.isRequired,
     };
-    
+
     return (
         <div className='FormularioDespesa'>
             <h2>Adicionar Despesa</h2>
@@ -45,7 +45,7 @@ export default function FormDespesa({ addDespesa }) {
                         className='form-select'
                         onChange={(e) => setTipodespesa(e.target.value)}
                         value={tipodespesa}
-                    >
+                    >   <option>Selecione o tipo da despesa</option>
                         <option value='ALIMENTACAO'>Alimentação</option>
                         <option value='TRANSPORTE'>Transporte</option>
                         <option value='HOSPEDAGEM'>Hospedagem</option>

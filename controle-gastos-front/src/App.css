@@ -31,6 +31,10 @@ body{
   margin-top: .5rem;
 }
 
+#rolagem-historico{
+  height:"500px";
+}
+
 h1{
   text-align: center;
 }

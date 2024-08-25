@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
 
 export default function Historico() {
 
@@ -9,27 +10,27 @@ export default function Historico() {
             .then(response => response.json())
             .then(historico => {
                 setDados(<>
-                    <div>{historico.idFuncionario}</div>
-                    <div>{historico.nome}</div>
-                    <div>{historico.total}</div>
-                    <div>{historico.despesas.map(despesa => <>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                        <div>{despesa.descricao}</div>
-                        <div>{despesa.tipo}</div>
-                        <div>{despesa.valor}</div>
-                        <div>{despesa.data}</div>
-                        <div>{despesa.status}</div>
-                    </>)}</div>
+                    <div className="border border-dark mb-3 rounded p-3 bg-white">
+                        <div><strong>Nome:</strong> {historico.nome}</div>
+                        <div><strong>Total:</strong> R${historico.total}</div>
+                    </div>
+
+                    <div id="rolagem-historico" className="overflow-auto" style={{ maxHeight: "500px" }}>{historico.despesas.map(despesa => <div key={despesa.idDespesa} className="border border-dark mb-3 rounded p-3 bg-white">
+                            <div><strong>Descrição:</strong> {despesa.descricao}</div>
+                            <div><strong>Tipo:</strong> {despesa.tipo}</div>
+                            <div><strong>Valor:</strong> R${despesa.valor}</div>
+                            <div><strong>Data:</strong> {despesa.data}</div>
+                            <div><strong>Status:</strong> {despesa.status}</div>
+                        </div>)}</div>
                 </>)
             })
     }, [])
 
     return (
         <div>
-            <h1>Historico</h1>
+            <h1>Histórico de despesas</h1>
             {dados}
+            <Link to={"/"}><button className='btn btn-secondary'>Voltar</button></Link>
         </div>
     )
 }
