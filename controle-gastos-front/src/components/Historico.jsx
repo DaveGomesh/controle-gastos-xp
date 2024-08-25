@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export default function Historico() {  
+export default function Historico() {
 
     const [dados, setDados] = useState()
 
@@ -26,13 +26,10 @@ export default function Historico() {
             })
     }, [])
 
-
     return (
         <div>
             <h1>Historico</h1>
             {dados}
         </div>
     )
-
-
 }

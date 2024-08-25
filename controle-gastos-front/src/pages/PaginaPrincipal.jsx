@@ -1,17 +1,13 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const PaginaPrincipal = () => {
-  return (
-   
-    <div className='App'>
-    <h1>Controle de Gastos</h1>
-    <div>
-    <Link to="/form-despesa">Go to Form Despesa</Link>
-    <Link to="/historico">Go to Historico</Link>
-    </div>
-    </div>
-  )
+export default function PaginaPrincipal() {
+    return (
+        <div className='App'>
+            <h1>Controle de Gastos</h1>
+            <div>
+                <Link to="/form-despesa"><button>Go to Form Despesa</button></Link>
+                <Link to="/historico"><button>Go to Historico</button></Link>
+            </div>
+        </div>
+    )
 }
-
-
