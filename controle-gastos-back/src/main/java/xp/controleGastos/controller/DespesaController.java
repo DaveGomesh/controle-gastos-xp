@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import xp.controleGastos.dto.request.CadastrarDespesaDto;
 import xp.controleGastos.service.DespesaService;
@@ -23,7 +24,7 @@ public class DespesaController {
     private final DespesaService despesaService;
     
     @PostMapping
-    public ResponseEntity<UUID> cadastrar(@RequestBody CadastrarDespesaDto dto){
+    public ResponseEntity<UUID> cadastrar(@Valid @RequestBody CadastrarDespesaDto dto){
         var despesa = despesaService.cadastrar(dto);
         return (ResponseEntity
             .status(HttpStatus.CREATED)
